@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  
+  config:
+    import: optional:configserver:http://localhost:8888
+
+  cloud:
+    gateway:
+      routes:
+        - id: veterinarias
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/veterinarias/**
