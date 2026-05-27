@@ -24,7 +24,7 @@ public class MascotaService {
         return mapearADto(mascota);
     }
 
-    public List<MascotaResponseDTO> ObtenerTodos(){
+    public List<MascotaResponseDTO> obtenerTodos(){
         List<Mascota> mascotas = mascotaRepository.findAll();
         return mascotas.stream()
             .map(this :: mapearADto)
@@ -36,7 +36,7 @@ public class MascotaService {
         return mapearADto(MascotaAlmacenada);
     }
 
-    public MascotaResponseDTO Actualizar (Long id, Mascota detallesMascota){
+    public MascotaResponseDTO actualizar (Long id, Mascota detallesMascota){
         Mascota mascotaExistente = mascotaRepository.findById(id)
             .orElseThrow(() -> new RuntimeException("Mascota no encontrada con el id: " + id));
 
